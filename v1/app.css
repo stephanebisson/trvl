@@ -1,0 +1,57 @@
+body {
+			margin: 0;
+			padding: 0;
+			background-color: black;
+		}
+
+		.container {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background-color: teal;
+		}
+
+		.zone {
+			display: inline-block;
+			height: 100%;
+		}
+
+		#left {
+			float: left;
+			width: 20%;
+			background-color: blue;
+		}
+
+		#center {
+			float: left;
+			width: 60%;
+			background-color: white;
+		}
+
+		#right {
+			float: right;
+			width: 20%;
+			background-color: red;
+		}
+
+		.pod {
+			margin: 10px 10px 10px 10px;
+			/*padding: 0px 4px 4px 4px;*/
+			text-align: center;
+		}
+
+		.pod-header {
+			text-align: center;
+			background-color: gray;
+		}
+
+		.pod-body {
+			background-color: yellow;
+		}
+
+		.map-canvas {
+			height: 100%;
+			width: 100%;
+		}

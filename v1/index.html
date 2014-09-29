@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+	<script type="text/javascript" src="lib/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="lib/angular/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body ng-app="app">
+	<div class="container">
+		<div class="zone" id="left">
+			
+			<pod title="When">
+				<input placeholder="start date" type="date">
+				<input placeholder="how many days" type="number">
+			</pod>
+
+ 			<pod title="Where">
+ 				Home 
+ 				<input ng-model="itinerary.startCity" ng-model-options="{debounce: {'default': 1000}}" place-autocomplete="city"><br />
+ 				Country or region you want to visit 
+ 				<input place-autocomplete="region" ng-model="itinerary.regionToVisit" ng-model-options="{debounce: {'default': 1000}}">
+ 			</pod>
+
+ 			<pod title="Itinerary">
+ 				<div ng-repeat="place in itinerary.places">
+ 					<input ng-model="place.city" ng-model-options="{debounce: {'default': 1000}}" place-autocomplete="city" country="itinerary.regionToVisitShortName"> <button ng-click="itinerary.places.splice($index, 1);">X</button>
+ 				</div>
+ 				<button ng-click="itinerary.places.push({});">+</button>
+ 			</pod>
+
+ 			<pod title="Who">
+ 				<input placeholder="person 1"><br />
+ 				<input placeholder="person 2"><br />
+ 				<input placeholder="person 3"><br />
+ 			</pod>
+
+		</div>
+		<div class="zone" id="center">
+			<map itinerary="itinerary"></map>
+		</div>
+		<div class="zone" id="right"></div>
+	</div>
+</body>
+</html>
